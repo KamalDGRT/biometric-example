@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0388C20B2DAC063E00205BDD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0388C20A2DAC063A00205BDD /* .gitignore */; };
-		0388C20D2DAC064C00205BDD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0388C20C2DAC064600205BDD /* README.md */; };
 		0388C2132DAC07D900205BDD /* BioAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0388C2122DAC07D900205BDD /* BioAuth */; };
+		0388C2262DAC23AB00205BDD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0388C2252DAC23A600205BDD /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0388C1FC2DAC05DA00205BDD /* BiometricAuthExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BiometricAuthExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0388C20A2DAC063A00205BDD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		0388C20C2DAC064600205BDD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0388C2252DAC23A600205BDD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -42,7 +42,7 @@
 			isa = PBXGroup;
 			children = (
 				0388C20A2DAC063A00205BDD /* .gitignore */,
-				0388C20C2DAC064600205BDD /* README.md */,
+				0388C2252DAC23A600205BDD /* README.md */,
 				0388C1FE2DAC05DA00205BDD /* BiometricAuthExample */,
 				0388C1FD2DAC05DA00205BDD /* Products */,
 			);
@@ -124,7 +124,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0388C20D2DAC064C00205BDD /* README.md in Resources */,
+				0388C2262DAC23AB00205BDD /* README.md in Resources */,
 				0388C20B2DAC063E00205BDD /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
