@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0388C20B2DAC063E00205BDD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0388C20A2DAC063A00205BDD /* .gitignore */; };
 		0388C20D2DAC064C00205BDD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0388C20C2DAC064600205BDD /* README.md */; };
+		0388C2132DAC07D900205BDD /* BioAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0388C2122DAC07D900205BDD /* BioAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0388C2132DAC07D900205BDD /* BioAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +76,7 @@
 			);
 			name = BiometricAuthExample;
 			packageProductDependencies = (
+				0388C2122DAC07D900205BDD /* BioAuth */,
 			);
 			productName = BiometricAuthExample;
 			productReference = 0388C1FC2DAC05DA00205BDD /* BiometricAuthExample.app */;
@@ -103,6 +106,9 @@
 			);
 			mainGroup = 0388C1F32DAC05DA00205BDD;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0388C2112DAC07D900205BDD /* XCRemoteSwiftPackageReference "BioAuth" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0388C1FD2DAC05DA00205BDD /* Products */;
 			projectDirPath = "";
@@ -335,6 +341,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0388C2112DAC07D900205BDD /* XCRemoteSwiftPackageReference "BioAuth" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KamalDGRT/BioAuth";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0388C2122DAC07D900205BDD /* BioAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0388C2112DAC07D900205BDD /* XCRemoteSwiftPackageReference "BioAuth" */;
+			productName = BioAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0388C1F42DAC05DA00205BDD /* Project object */;
 }

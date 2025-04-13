@@ -2,8 +2,6 @@
 //  BiometricAuthExampleApp.swift
 //  BiometricAuthExample
 //
-//  Created by Kamal Sharma on 13/04/25.
-//
 
 import SwiftUI
 
