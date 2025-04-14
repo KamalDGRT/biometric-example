@@ -9,18 +9,37 @@ struct HomeScreen: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var appState: AppState
     
+    @ObservedObject private var viewModel = HomeViewModel()
+    
     @State var isBiometricEnabled: Bool = false
     
     var body: some View {
+        NavigationStack {
+            contentView
+                .onAppear {
+                    viewModel.decideEnableBiometric(for: appState.user.id)
+                }
+                .navigationTitle("Home View")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarBackButtonHidden(true)
+                .navigationDestination(isPresented: $viewModel.shouldShowEnrollBiometric) {
+                    EnableBiometricView()
+                }
+        }
+    }
+}
+
+extension HomeScreen {
+    var contentView: some View {
         List {
             Section {
                 Text(appState.userName)
                 Text(appState.userEmail)
                 Toggle("LogIn with Biometrics", isOn: $isBiometricEnabled)
                 Button {
+                    appState.moveToLaunchScreen = true
                     appState.resetLoggedInUser()
                     dismiss()
-                    appState.moveToLaunchScreen = true
                 } label: {
                     Text("Sign out")
                 }
@@ -38,9 +57,6 @@ struct HomeScreen: View {
                 Text("ABOUT")
             }
         }
-        .navigationTitle("Home View")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -52,8 +68,6 @@ struct HomeScreen: View {
         email: "john@gmail.com",
         password: "samplePassword"
     )
-    return NavigationView {
-        HomeScreen()
-            .environmentObject(appState)
-    }
+    return HomeScreen()
+        .environmentObject(appState)
 }

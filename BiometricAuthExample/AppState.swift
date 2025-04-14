@@ -2,6 +2,7 @@
 //  AppState.swift
 //  BiometricAuthExample
 //
+// Reference: https://stackoverflow.com/a/61134245
 
 import Foundation
 
@@ -17,17 +18,18 @@ final class AppState: ObservableObject {
     @Published var isLoggedIn: Bool
     @Published var user: User
     
-    init(
-        moveToLaunchScreen: Bool = false,
-        isLoggedIn: Bool = false
-    ) {
-        self.moveToLaunchScreen = moveToLaunchScreen
-        self.isLoggedIn = isLoggedIn
+    init() {
+        self.moveToLaunchScreen = false
+        self.isLoggedIn = false
         self.user = User(id: "", name: "", email: "", password: "")
     }
 }
 
 extension AppState {
+    var userId: String {
+        user.id
+    }
+    
     var userName: String {
         user.name
     }
