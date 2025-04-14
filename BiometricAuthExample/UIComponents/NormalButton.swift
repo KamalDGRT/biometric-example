@@ -11,7 +11,6 @@ struct NormalButton: View {
     var height = 45.0
     var foregroundColor: Color
     var cornerRadius = 15.0
-    var isDisabled = false
     var ctaAction: (() -> Void)
     
     var body: some View {
@@ -25,7 +24,6 @@ struct NormalButton: View {
                 )
                 .fill(backgroundColor)
                 .frame(height: height, alignment: .center)
-                .opacity(isDisabled ? 0.3 : 1.0)
                 
                 Text(title)
                     .foregroundColor(foregroundColor)

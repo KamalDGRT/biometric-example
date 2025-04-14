@@ -5,14 +5,13 @@
 
 import Foundation
 
-struct User: Codable {
+struct User: Codable, Equatable {
     let id: String
     var name: String
     var email: String
     var password: String
-    var isBiometricEnabled: Bool
 }
 
-struct Users: Codable {
+struct Users: Codable, Equatable {
     var users: [User]
 }
