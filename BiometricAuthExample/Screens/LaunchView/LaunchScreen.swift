@@ -8,10 +8,12 @@ import SwiftUI
 enum LaunchNavigation: String, CaseIterable, Hashable {
     case signUp
     case logIn
+    case home
     case none
 }
 
 struct LaunchScreen: View {
+    @EnvironmentObject var appState: AppState
     @ObservedObject private var viewModel = LaunchViewModel()
     
     var body: some View {
@@ -33,12 +35,17 @@ struct LaunchScreen: View {
                     viewModel.showLoginView()
                 }
                 
-                NormalButton(
-                    title: "Sign In With Biometrics",
-                    backgroundColor: Color.red,
-                    foregroundColor: .white
-                ) {
-                    viewModel.showLoginView()
+                if viewModel.shouldShowBiometricAuthCTA {
+                    NormalButton(
+                        title: "Sign In With Biometrics",
+                        backgroundColor: Color.red,
+                        foregroundColor: .white
+                    ) {
+                        viewModel.validateBiometricAuth() { user in
+                            appState.user = user
+                            viewModel.navigateToHome()
+                        }
+                    }
                 }
             }
             .padding(.horizontal, 64)
@@ -52,6 +59,8 @@ struct LaunchScreen: View {
                     LogInView()
                 case .signUp:
                     SignUpView()
+                case .home:
+                    HomeScreen()
                 default:
                     EmptyView()
                 }

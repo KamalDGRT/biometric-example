@@ -57,6 +57,7 @@ extension EnableBiometricView {
                 cornerRadius: 10
             ) {
                 viewModel.didTapEnableBiometric(by: appState.userId)
+                dismiss()
             }
             .padding(.top, 50)
             .padding(.horizontal, 64)

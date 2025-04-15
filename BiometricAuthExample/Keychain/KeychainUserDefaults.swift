@@ -147,4 +147,17 @@ extension KeychainUserDefaults {
         guard let preference = getLocalBiometricPreference() else { return false }
         return preference.isBiometricEnabled
     }
+    
+    func getBiometricUserData() throws -> User {
+        let users = fetchUsers()
+        
+        guard let preference = getLocalBiometricPreference(),
+                !users.isEmpty
+        else { throw LoginError.userNotFound }
+        
+        guard let userData = users.first(where: { $0.id == preference.userID })
+        else { throw LoginError.userNotFound }
+        
+        return userData
+    }
 }

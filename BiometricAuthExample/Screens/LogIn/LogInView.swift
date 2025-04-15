@@ -35,7 +35,7 @@ struct LogInView: View {
             HomeScreen()
         }
         .onReceive(self.appState.$moveToLaunchScreen) { moveToLaunchScreen in
-            if moveToLaunchScreen {
+            if moveToLaunchScreen && !viewModel.isBiometricEnrolled {
                 self.appState.moveToLaunchScreen = false
                 dismiss()
             }

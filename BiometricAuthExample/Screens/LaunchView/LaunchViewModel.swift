@@ -18,4 +18,22 @@ final class LaunchViewModel: ObservableObject {
         currentView = .logIn
         shouldNavigate = true
     }
+    
+    func navigateToHome() {
+        currentView = .home
+        shouldNavigate = true
+    }
+    
+    var shouldShowBiometricAuthCTA: Bool {
+        KeychainUserDefaults.shared.isBiometricEnrolled()
+    }
+    
+    func validateBiometricAuth(onSuccess: ((User) -> Void)?) {
+        do {
+            let userData = try KeychainUserDefaults.shared.getBiometricUserData()
+            onSuccess?(userData)
+        } catch {
+            print("User not found")
+        }
+    }
 }

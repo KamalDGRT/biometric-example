@@ -31,4 +31,8 @@ final class LoginViewModel: ObservableObject {
     func navigateToHomeScreen() {
         shouldNavigateToHome = true
     }
+    
+    var isBiometricEnrolled: Bool {
+        KeychainUserDefaults.shared.isBiometricEnrolled()
+    }
 }
